@@ -9,5 +9,5 @@ function getAll() {
 };
 
 function insertMovie(movie) {
-    return db('movies').insert({ title: movie.title })
+    return db('movies').insert(movie);
 };
