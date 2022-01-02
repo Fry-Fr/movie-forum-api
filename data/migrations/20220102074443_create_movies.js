@@ -8,6 +8,7 @@ exports.up = function(knex) {
         tbl.text('description');
         tbl.string('release_date');
         tbl.string('rating');
+        tbl.boolean('is_good');
         tbl.string('image_url');
     });
   };
