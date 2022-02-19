@@ -13,4 +13,15 @@ router.post('/', (req, res, next) => {
     }).catch(err => next(err))
 });
 
+router.delete('/:id', (req, res, next) => {
+    const { id } = req.params;
+    Movie.deleteMovie(id).then(response => {
+        if (response === 0) {
+            res.json({ message: 'No entry to remove.' })
+        }else if (response === 1) {
+            res.json({ message: 'Removed Successfully' })
+        }
+    }).catch(err => next(err))
+});
+
 module.exports = router;

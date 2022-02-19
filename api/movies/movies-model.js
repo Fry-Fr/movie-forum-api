@@ -1,7 +1,8 @@
 const db = require('../../data/dbConfig');
 module.exports = {
     getAll,
-    insertMovie
+    insertMovie,
+    deleteMovie
 }
 
 function getAll() {
@@ -11,3 +12,7 @@ function getAll() {
 function insertMovie(movie) {
     return db('movies').insert(movie);
 };
+
+function deleteMovie(id) {
+    return db('movies').where({ 'movie_id': id }).del();
+}
