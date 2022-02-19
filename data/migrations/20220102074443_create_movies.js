@@ -10,7 +10,7 @@ exports.up = function(knex) {
         tbl.string('rating');
         tbl.boolean('is_good');
         tbl.string('image_url');
-        tbl.datetime('created_at');
+        tbl.timestamp('created_at').defaultTo(knex.fn.now());
     });
   };
   
