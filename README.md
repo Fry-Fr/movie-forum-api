@@ -1,3 +1,3 @@
 # movie-forum-api
-> Node.js / Express
-> Postgresql database.
+> - Node.js / Express.
+> - Postgres sql database.
