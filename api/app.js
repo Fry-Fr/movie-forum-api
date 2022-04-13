@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+const authRouter = require("./auth")
 const moviesRouter = require("./movies");
 
 const server = express();
@@ -9,6 +10,7 @@ server.use(express.json());
 server.use(cors());
 server.use(helmet());
 
+server.use('/api/auth', authRouter);
 server.use('/movies', moviesRouter);
 
 server.get('/', (req, res) => {

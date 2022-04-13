@@ -1,19 +1,20 @@
 const router = require('express').Router();
 const Movie = require('./movies-model');
+const { restricted } = require('../auth/middleware');
 
-router.get('/', (req, res, next) => {
+router.get('/', restricted, (req, res, next) => {
     Movie.getAll().then(movies => {
         res.json(movies)
     })
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', restricted, (req, res, next) => {
     Movie.insertMovie(req.body).then(response => {
         res.json(response)
     }).catch(err => next(err))
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', restricted, (req, res, next) => {
     const { id } = req.params;
     Movie.deleteMovie(id).then(response => {
         if (response === 0) {
